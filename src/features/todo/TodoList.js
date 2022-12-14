@@ -29,10 +29,7 @@ const TodoList = () => {
   return (
     <>
       <TodoGroup todos={todos} />
-      <TodoGenerator />
-      {/* <div>
-        <button onClick={navigateDone}>To DONE</button>
-      </div> */}
+
     </>
   );
 };
