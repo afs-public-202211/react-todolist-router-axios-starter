@@ -7,3 +7,15 @@ const api = axios.create({
 export const getTodos = () => {
     return api.get("/todos");
 };
+
+export const addTodos = (todo) => {
+    return api.post("/todos", todo);
+}
+
+export const updateTodos = (id, todo) => {
+    return api.put("/todos/"+id, todo);
+}
+
+export const deleteTodos = (id) => {
+    return api.delete("/todos/"+id);
+}

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { updateTodos } from "../../api/todos";
 
 const initTodos = [
   {
@@ -27,10 +28,11 @@ export const todoSlice = createSlice({
     },
     toggleTodo: (state, action) => {
       return state.map((todo) =>
-        todo.id === action.payload ? { ...todo, done: !todo.done } : todo
-      );
+      todo.id === action.payload ? { ...todo, done: !todo.done} : todo
+    );
     },
     deleteTodo: (state, action) => {
+      
       return state.filter((todo) => todo.id !== action.payload);
     },
     addTodos: (state, action) => {

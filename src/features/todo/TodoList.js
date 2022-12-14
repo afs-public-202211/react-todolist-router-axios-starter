@@ -30,9 +30,9 @@ const TodoList = () => {
     <>
       <TodoGroup todos={todos} />
       <TodoGenerator />
-      <div>
+      {/* <div>
         <button onClick={navigateDone}>To DONE</button>
-      </div>
+      </div> */}
     </>
   );
 };

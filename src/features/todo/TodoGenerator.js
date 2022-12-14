@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { addTodos } from "../../api/todos";
 import { addTodo } from "./todoSlice";
+import { Button } from "antd";
 
 const TodoGenerator = () => {
   const dispatch = useDispatch();
@@ -12,7 +14,12 @@ const TodoGenerator = () => {
 
   const onAdd = () => {
     const todo = { text: todoText, done: false };
+    addTodos(todo).then((response) => {
+      console.log(response.data);
+    })
     dispatch(addTodo(todo));
+    //step2: call api and update db
+    //step3: create a reducer
     setTodoText("");
   };
 
@@ -25,7 +32,7 @@ const TodoGenerator = () => {
         value={todoText}
         onChange={onTextChange}
       />
-      <button onClick={onAdd}>add</button>
+      <button type="primary"onClick={onAdd}>add</button>
     </>
   );
 };
