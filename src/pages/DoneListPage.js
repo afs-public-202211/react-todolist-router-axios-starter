@@ -16,7 +16,7 @@ export default function DoneListPage() {
     // }
 
     return (
-        <div>DoneListPage
+        <div>
             <DoneGroup todos = {todos}/>
         </div>
     

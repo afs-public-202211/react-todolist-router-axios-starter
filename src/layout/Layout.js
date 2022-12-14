@@ -14,22 +14,29 @@ export default function Layout() {
 
         <div className='content'>
             <Header>
+                <Row style={{ backgroundColor: '#001529' }}>
+                    <Col span={19}>
+                        <Menu
+                        // style={{ width: 'calc(100% - 200px)' }} 
+                        theme="dark"
+                        mode="horizontal"
+                        defaultSelectedKeys={['1']}
+                        items={[{label: "Home Page", key: "/", icon: <HomeOutlined />},
+                        {label: "About Page", key: "/about"},
+                        {label: "Done Page", key: "/done"},
+                        {label: "404 Page", key: "/*"}]}
+                        onClick={({key}) => {
+                            navigate(key);
+                        }}
+                        >
+                        </Menu>
+                    </Col>
+                    <Col span={5} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <TodoGenerator/>
+                    </Col>
+                </Row>
                 <div className="logo" />
-                <Menu
-                theme="dark"
-                mode="horizontal"
-                defaultSelectedKeys={['1']}
-                items={[{label: "Home Page", key: "/", icon: <HomeOutlined />},
-                {label: "About Page", key: "/about"},
-                {label: "Done Page", key: "/done"},
-                {label: "404 Page", key: "/*"},]}
-                onClick={({key}) => {
-                    navigate(key);
-                }}
-                >
-                </Menu>
             </Header>
-            <TodoGenerator />
             <Outlet/>
         </div>
     </div>

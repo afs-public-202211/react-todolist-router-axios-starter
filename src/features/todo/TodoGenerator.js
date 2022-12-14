@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodos } from "../../api/todos";
 import { addTodo } from "./todoSlice";
-import { Button } from "antd";
+import { Button, Input } from "antd";
 
 const TodoGenerator = () => {
   const dispatch = useDispatch();
@@ -16,8 +16,9 @@ const TodoGenerator = () => {
     const todo = { text: todoText, done: false };
     addTodos(todo).then((response) => {
       console.log(response.data);
+      dispatch(addTodo(response.data));
     })
-    dispatch(addTodo(todo));
+
     //step2: call api and update db
     //step3: create a reducer
     setTodoText("");
@@ -25,14 +26,16 @@ const TodoGenerator = () => {
 
   return (
     <>
-      <input
+    <Input.Group compact style={{ backgroundColor: '#001529' }}>
+      <Input
+        style={{ width: '200px' }}         
         placeholder="input your todo"
         type="text"
         name="todo"
         value={todoText}
-        onChange={onTextChange}
-      />
-      <button type="primary"onClick={onAdd}>add</button>
+        onChange={onTextChange}/>
+        <Button type="primary" onClick={onAdd}>add</Button>
+    </Input.Group>
     </>
   );
 };

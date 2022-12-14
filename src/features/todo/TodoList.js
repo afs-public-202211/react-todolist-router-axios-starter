@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom';
 import { useEffect } from "react";
 import { getTodos } from "../../api/todos";
 import { addTodos } from "./todoSlice";
+import { Row } from "antd/";
 
 const TodoList = () => {
   // get the data from store
@@ -29,7 +30,6 @@ const TodoList = () => {
   return (
     <>
       <TodoGroup todos={todos} />
-
     </>
   );
 };
